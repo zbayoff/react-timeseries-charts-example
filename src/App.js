@@ -9,9 +9,7 @@ import {
   BarChart,
   Resizable
 } from "react-timeseries-charts";
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "./App.css";
 
 const data = [
   ["2017-01-24T00:00", 0.01],
@@ -51,34 +49,32 @@ const series = new TimeSeries({
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
-          <Resizable>
-            <ChartContainer timeRange={series.range()}>
-              <ChartRow height="150" title="Rainfall sample">
-                <YAxis
-                  id="rain"
-                  label="Rainfall (inches/hr)"
-                  min={0}
-                  max={1.5}
-                  format=".2f"
-                  width="70"
-                  type="linear"
-                />
-                <Charts>
-                  <BarChart
-                    axis="rain"
-                    spacing={1}
-                    columns={["precip"]}
-                    series={series}
-                    minBarHeight={1}
-                  />
-                </Charts>
-              </ChartRow>
-            </ChartContainer>
-          </Resizable>
-      </div>
-      </div>
+    <div>
+      <Resizable>
+        <ChartContainer timeRange={series.range()}>
+          <ChartRow height="150" title="Rainfall sample">
+            <YAxis
+              id="rain"
+              label="Rainfall (inches/hr)"
+              min={0}
+              max={1.5}
+              format=".2f"
+              width="70"
+              type="linear"
+            />
+            <Charts>
+              <BarChart
+                axis="rain"
+                spacing={1}
+                columns={["precip"]}
+                series={series}
+                minBarHeight={1}
+              />
+            </Charts>
+          </ChartRow>
+        </ChartContainer>
+      </Resizable>
+    </div>
   );
 }
 
